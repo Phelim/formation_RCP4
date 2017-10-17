@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt,
  com.sii.rental.core,
  org.eclipse.e4.core.services,
- org.eclipse.jface;bundle-version="3.13.1"
+ org.eclipse.jface;bundle-version="3.13.1",
+ org.eclipse.e4.core.di;bundle-version="1.6.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0"
