@@ -2,15 +2,19 @@ package com.sii.rental.ui.views;
 
 import java.util.List;
 
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
-public class RentalProvider extends LabelProvider implements ITreeContentProvider {
+public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
@@ -40,7 +44,11 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	}
 
 	@Override
+	
 	public boolean hasChildren(Object element) {
+		if (element instanceof Customer || element instanceof RentalObject || element instanceof Rental) {
+			return false;
+		} 
 		return true;
 	}
 	
@@ -90,6 +98,27 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return label;
 		}
 
+	}
+
+	@Override
+	public Color getForeground(Object element) {
+		if (element instanceof Customer) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+		} else if (element instanceof RentalObject) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+		} else if (element instanceof RentalAgency) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
+		} else if (element instanceof Node) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		}  else if (element instanceof Rental) {
+			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+		} 
+		return null;
+	}
+
+	@Override
+	public Color getBackground(Object element) {
+		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 	}
 	
 }
