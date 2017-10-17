@@ -1,7 +1,6 @@
 
 package com.sii.rental.ui.views;
 
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -16,7 +15,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 
 import com.opcoach.training.rental.Rental;
-import com.sii.rental.core.RentalCoreActivator;
+import com.opcoach.training.rental.RentalAgency;
 
 public class RentalPart {
 
@@ -30,7 +29,7 @@ public class RentalPart {
 	private Label duLabel;
 
 	@PostConstruct
-	public void createContent(Composite parent) {
+	public void createContent(Composite parent, RentalAgency rentalAgency) {
 		parent.setLayout(new GridLayout(1, false));
 		
 		Group grpInformations = new Group(parent, SWT.NONE);
@@ -77,7 +76,7 @@ public class RentalPart {
 		dateFin.setLayoutData(gd_finDebut);
 		dateFin.setText("22/03/2011");
 		
-		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		setRental(rentalAgency.getRentals().get(0));
 	}
 	
 	public void setRental(Rental r) {
