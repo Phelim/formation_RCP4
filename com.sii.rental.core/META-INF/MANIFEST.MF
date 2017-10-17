@@ -1,17 +1,18 @@
 Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Core
 Bundle-SymbolicName: com.sii.rental.core;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: SII
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.13.0";visibility:=reexport,
  org.eclipse.emf.ecore;bundle-version="2.13.0";visibility:=reexport,
  org.eclipse.e4.core.contexts;bundle-version="1.6.0";visibility:=reexport
+Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Activator: com.sii.rental.core.RentalCoreActivator
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: .,
- lib/rental.jar
-Export-Package: com.opcoach.training.rental;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
- com.opcoach.training.rental.helpers,
- com.sii.rental.core;uses:="org.osgi.framework"
+Bundle-Vendor: SII
+Import-Package: org.eclipse.jface.viewers
+Export-Package: com.opcoach.training.rental;uses:="org.eclipse.emf.eco
+ re,org.eclipse.emf.common.util",com.opcoach.training.rental.helpers,c
+ om.sii.rental.core;uses:="org.osgi.framework"
+Bundle-Name: Core
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .,lib/rental.jar
+Bundle-Activator: com.sii.rental.core.RentalCoreActivator
+
