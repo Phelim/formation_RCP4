@@ -6,6 +6,7 @@
         <children xsi:type="basic:Part" xmi:id="_uzxp8LMlEeeadajkKCppYw" elementId="com.sii.rental.eap.part.treeviewer" contributionURI="bundleclass://com.sii.rental.ui/com.sii.rental.ui.views.RentalTreePart" label="Tree viewer">
           <menus xsi:type="menu:PopupMenu" xmi:id="_GzB2ILPbEeeH0-14GbukpQ" elementId="com.sii.rental.eap.popupmenu.message">
             <children xsi:type="menu:HandledMenuItem" xmi:id="_HuFwMLPbEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handledmenuitem.message" label="Message" command="_dMuG4LPZEeeH0-14GbukpQ"/>
+            <children xsi:type="menu:DynamicMenuContribution" xmi:id="_mu8bULPqEeeH0-14GbukpQ" elementId="com.sii.rental.eap.dynamicmenucontribution.copier" label="Copier" contributionURI="bundleclass://com.sii.rental.eap/com.sii.rental.eap.menus.RentalMenuContribution"/>
           </menus>
           <menus xmi:id="_aAYmYLPcEeeH0-14GbukpQ" elementId="com.sii.rental.eap.menu.hello" label="Hello">
             <tags>ViewMenu</tags>
@@ -45,6 +46,7 @@
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.sii.rental.eap.handler.saveCommand" contributionURI="bundleclass://com.sii.rental.eap/com.sii.rental.eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.sii.rental.eap.handler.aboutCommand" contributionURI="bundleclass://com.sii.rental.eap/com.sii.rental.eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_orWtYLPZEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handler.message" contributionURI="bundleclass://com.sii.rental.eap/com.sii.rental.eap.handlers.MessageHandler" command="_dMuG4LPZEeeH0-14GbukpQ"/>
+  <handlers xmi:id="_GfaVkLPmEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handler.copyCustomer" contributionURI="bundleclass://com.sii.rental.eap/com.sii.rental.eap.handlers.CopyCustomerHandler" command="_HWIXoLPlEeeH0-14GbukpQ"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.sii.rental.eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.sii.rental.eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.sii.rental.eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -66,6 +68,7 @@
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
   <commands xmi:id="_dMuG4LPZEeeH0-14GbukpQ" elementId="com.sii.rental.eap.command.message" commandName="showMessage"/>
+  <commands xmi:id="_HWIXoLPlEeeH0-14GbukpQ" elementId="org.eclipse.ui.edit.copy" commandName="copyCustomerCommand"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

@@ -8,9 +8,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: SII
 Import-Package: org.eclipse.jface.viewers
-Export-Package: com.opcoach.training.rental;uses:="org.eclipse.emf.eco
- re,org.eclipse.emf.common.util",com.opcoach.training.rental.helpers,c
- om.sii.rental.core;uses:="org.osgi.framework"
+Export-Package: com.opcoach.training.rental;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+ com.opcoach.training.rental.helpers;uses:="com.opcoach.training.rental,org.eclipse.emf.common.notify,org.eclipse.emf.common.notify.impl",
+ com.sii.rental.core;uses:="org.osgi.framework"
 Bundle-Name: Core
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,lib/rental.jar
