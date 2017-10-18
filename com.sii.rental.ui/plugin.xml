@@ -16,5 +16,11 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.sii.rental.ui.prefs.PrefInit">
+      </initializer>
+   </extension>
 
 </plugin>
