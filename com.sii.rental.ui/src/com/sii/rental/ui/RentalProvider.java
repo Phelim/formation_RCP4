@@ -5,10 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -24,6 +24,12 @@ import com.opcoach.training.rental.RentalObject;
 
 public class RentalProvider extends LabelProvider 
 		implements ITreeContentProvider, IColorProvider, RentalUIConstants {
+
+	/** A local color registry to store the node colors */
+	private ColorRegistry colorRegistry = new ColorRegistry();
+	
+	@Inject @Named(RENTAL_UI_PREF_STORE)
+	private IPreferenceStore prefStore;
 
 	@Override
 	public Object[] getElements(Object inputElement) {
@@ -53,7 +59,6 @@ public class RentalProvider extends LabelProvider
 	}
 
 	@Override
-	
 	public boolean hasChildren(Object element) {
 		if (element instanceof Customer || element instanceof RentalObject || element instanceof Rental) {
 			return false;
@@ -111,20 +116,37 @@ public class RentalProvider extends LabelProvider
 
 	@Override
 	public Color getForeground(Object element) {
-		if (element instanceof Customer) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
-		} else if (element instanceof RentalObject) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
-		} else if (element instanceof RentalAgency) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
-		} else if (element instanceof Node) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
-		}  else if (element instanceof Rental) {
-			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
-		} 
+		if (element instanceof Customer)
+			return getPrefColor(PREF_CUSTOMER_COLOR);
+		else if (element instanceof Rental)
+			return getPrefColor(PREF_RENTAL_COLOR);
+		else if (element instanceof RentalObject)
+			return getPrefColor(PREF_RENTAL_OBJECT_COLOR);
+
 		return null;
 	}
+	
+	/**
+	 * Get a color according to a key in the preference store
+	 * 
+	 * @param key
+	 *            the preference key to get the rgb value
+	 */
+	private Color getPrefColor(String key)
+	{
+		String rgbKey = prefStore.getString(key);
 
+		Color result = colorRegistry.get(rgbKey);
+		if (result == null)
+		{
+			// Get value in pref store
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			result = colorRegistry.get(rgbKey);
+		}
+
+		return result;
+
+}
 	@Override
 	public Color getBackground(Object element) {
 		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
