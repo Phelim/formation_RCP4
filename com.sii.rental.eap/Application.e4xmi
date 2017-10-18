@@ -11,6 +11,9 @@
             <tags>ViewMenu</tags>
             <children xsi:type="menu:HandledMenuItem" xmi:id="_AxqwobPbEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handledmenuitem.message" label="Message" command="_dMuG4LPZEeeH0-14GbukpQ"/>
           </menus>
+          <toolbar xmi:id="_6oedcLPdEeeH0-14GbukpQ" elementId="com.sii.rental.eap.toolbar.0">
+            <children xsi:type="menu:HandledToolItem" xmi:id="_72SUYLPdEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handledtoolitem.hello" label="Hello" iconURI="platform:/plugin/com.sii.rental.ui/icons/Agency.png" command="_dMuG4LPZEeeH0-14GbukpQ"/>
+          </toolbar>
         </children>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_Veb9ELNLEeeadajkKCppYw" elementId="com.sii.rental.eap.partstack.0" containerData="70">
@@ -55,6 +58,9 @@
   <menuContributions xmi:id="_s-t4oLPcEeeH0-14GbukpQ" elementId="com.sii.rental.eap.menucontribution.hello" positionInParent="before=com.sii.rental.eap.handleditem.quit" parentId="file">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_ynffALPcEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handledmenuitem.hello" label="Hello" command="_dMuG4LPZEeeH0-14GbukpQ"/>
   </menuContributions>
+  <toolBarContributions xmi:id="_lD5hsLPdEeeH0-14GbukpQ" elementId="com.sii.rental.eap.toolbarcontribution.0" parentId="org.eclipse.ui.main.toolbar">
+    <children xsi:type="menu:HandledToolItem" xmi:id="_lyd34LPdEeeH0-14GbukpQ" elementId="com.sii.rental.eap.handledtoolitem.0" iconURI="platform:/plugin/com.sii.rental.ui/icons/Agency.png" command="_dMuG4LPZEeeH0-14GbukpQ"/>
+  </toolBarContributions>
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
   <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
