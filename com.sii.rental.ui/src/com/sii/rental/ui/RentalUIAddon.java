@@ -1,17 +1,19 @@
  
-package com.sii.rental.ui.views;
+package com.sii.rental.ui;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+import com.opcoach.e4.preferences.ScopedPreferenceStore;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.helpers.RentalAgencyGenerator;
-import com.sii.rental.ui.RentalUIConstants;
 
 public class RentalUIAddon implements RentalUIConstants{
 	
@@ -19,6 +21,9 @@ public class RentalUIAddon implements RentalUIConstants{
 	public void initializeRental(IEclipseContext ctx) {
 		ctx.set(RentalAgency.class, RentalAgencyGenerator.createSampleAgency());
 		ctx.set(RENTAL_UI_IMG_REGISTRY, getLocalImageRegistry());
+		
+		IPreferenceStore prefStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, PLUGIN_ID);
+		ctx.set(RENTAL_UI_PREF_STORE, prefStore);
 	}
 
 	/**
@@ -40,7 +45,7 @@ public class RentalUIAddon implements RentalUIConstants{
 		reg.put(IMG_AGENCY, ImageDescriptor.createFromURL(b.getEntry(IMG_AGENCY)));
 		reg.put(IMG_COLLAPSE_ALL, ImageDescriptor.createFromURL(b.getEntry(IMG_COLLAPSE_ALL)));
 		reg.put(IMG_EXPAND_ALL, ImageDescriptor.createFromURL(b.getEntry(IMG_EXPAND_ALL)));
-
+		
 		return reg;
 	}
 }

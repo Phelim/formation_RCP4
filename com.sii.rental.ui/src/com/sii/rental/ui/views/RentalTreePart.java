@@ -17,6 +17,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 
 import com.opcoach.training.rental.RentalAgency;
+import com.sii.rental.ui.RentalProvider;
 
 public class RentalTreePart {
 

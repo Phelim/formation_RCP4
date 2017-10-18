@@ -1,4 +1,4 @@
-package com.sii.rental.ui.views;
+package com.sii.rental.ui;
 
 import java.util.List;
 
@@ -21,7 +21,6 @@ import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
-import com.sii.rental.ui.RentalUIConstants;
 
 public class RentalProvider extends LabelProvider 
 		implements ITreeContentProvider, IColorProvider, RentalUIConstants {
