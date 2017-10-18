@@ -2,12 +2,19 @@
 package com.sii.rental.ui;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.swt.widgets.Shell;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -47,5 +54,11 @@ public class RentalUIAddon implements RentalUIConstants{
 		reg.put(IMG_EXPAND_ALL, ImageDescriptor.createFromURL(b.getEntry(IMG_EXPAND_ALL)));
 		
 		return reg;
+	}
+
+	
+	@Inject @Optional
+	private void reactOnRentalCopy(@UIEventTopic("rental/copy") String copy, @Named(IServiceConstants.ACTIVE_SHELL) Shell shell) {
+		MessageDialog.openInformation(shell, "Action utilisateur", "Copie du client " + copy);
 	}
 }
